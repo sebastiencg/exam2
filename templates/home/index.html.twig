@@ -3,11 +3,17 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<div>
-    <form method="post" action="{{ path('app_quote_new') }}">
-        <input type="text" name="sentence" value="{{ citation.citation }}">
-        <input type="text" name="personnage"  value="{{ citation.infos.personnage }}">
-        <button type="submit"> ajouter</button>
-    </form>
-</div>
+    <a class="btn btn-primary" href="{{ path('app_best') }}"> les best of</a>
+        <div>
+            <br>
+            <p>{{ citation.citation }}</p>
+            <br>
+            <p>Personnage : {{ citation.infos.personnage }}</p>
+            <form method="post" action="{{ path('app_quote_new') }}">
+                <input type="hidden" name="sentence" value="{{ citation.citation }}">
+                <input type="hidden" name="personnage"  value="{{ citation.infos.personnage }}">
+                <button type="submit" class="btn btn-primary"> ajouter</button>
+            </form>
+        </div>
+
 {% endblock %}

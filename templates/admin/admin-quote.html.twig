@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    {% for quote in quotes %}
+        <p>{{ quote.sentence }}</p>
+        <p>{{ quote.personnage }}</p>
+        <a class="btn btn-danger" href="{{ path('app_admin_remove',{'id':quote.id}) }}">supprimer</a>
+        <hr>
+    {% endfor %}
+{% endblock %}

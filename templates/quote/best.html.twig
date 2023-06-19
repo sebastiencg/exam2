@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuoteController!{% endblock %}
+
+{% block body %}
+    <h1>best of</h1>
+    {% for quote in quotes %}
+        <p>{{ quote.sentence }}</p>
+        <p>Personnage : {{ quote.personnage }}</p>
+        <form method="post" action="{{ path('app_quote_new') }}">
+            <input type="hidden" name="sentence" value="{{ quote.sentence }}">
+            <input type="hidden" name="personnage"  value="{{ quote.personnage }}">
+            <button type="submit" class="btn btn-primary"> ajouter</button>
+        </form>
+        <hr>
+    {% endfor %}
+{% endblock %}
